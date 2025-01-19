@@ -19,14 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-#define LAYOUT( \
-    K00, K01, K02, K03, K04 \
-   ) \
-  { \
-    { K00, K01, K02, K03, K04 } \
-  }
-
-
 typedef union {
     uint32_t raw;
     struct {
@@ -39,10 +31,6 @@ typedef union {
     };
 } cocot_config_t;
 
-
-
-extern cocot_config_t cocot_config;
-
 enum cocot_keycodes {
 
     COCOT_SAFE_RANGE = SAFE_RANGE,
@@ -52,21 +40,19 @@ enum cocot_keycodes {
     ROT_L15,
     SCRL_MO,
     SCRL_TO,
-    SCRL_IN,
-
+    SCRL_IN
 };
 
-#define CPI_SW USER00
-#define SCRL_SW USER01
-#define ROT_R15 USER02
-#define ROT_L15 USER03
-#define SCRL_MO USER04
-#define SCRL_TO USER05
-#define SCRL_IN USER06
+#define CPI_SW QK_KB_0
+#define SCRL_SW QK_KB_1
+#define ROT_R15 QK_KB_2
+#define ROT_L15 QK_KB_3
+#define SCRL_MO QK_KB_4
+#define SCRL_TO QK_KB_5
+#define SCRL_IN QK_KB_6
 
+extern cocot_config_t cocot_config;
 
-bool encoder_update_user(uint8_t index, bool clockwise);
-bool encoder_update_kb(uint8_t index, bool clockwise);
 bool cocot_get_scroll_mode(void);
 void cocot_set_scroll_mode(bool mode);
 
